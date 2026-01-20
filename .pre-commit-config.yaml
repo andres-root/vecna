@@ -1,0 +1,23 @@
+repos:
+  # Basic file hygiene - catches common mistakes
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace      # Remove trailing whitespace
+      - id: end-of-file-fixer        # Ensure files end with newline
+      - id: check-yaml               # Validate YAML files
+      - id: check-toml               # Validate TOML files (like pyproject.toml)
+      - id: check-added-large-files  # Prevent large files from being committed
+
+  # Code formatting with Black
+  - repo: https://github.com/psf/black
+    rev: 24.4.2
+    hooks:
+      - id: black
+
+  # Linting and import sorting with Ruff
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.4
+    hooks:
+      - id: ruff
+        args: [--fix]
